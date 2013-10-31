@@ -1,5 +1,5 @@
 chrome.browserAction.onClicked.addListener(function() {
   chrome.tabs.executeScript(null, {
-    file: "test.js"
+    file: "on_click.js"
   })
 })
