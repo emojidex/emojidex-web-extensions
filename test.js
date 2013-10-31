@@ -1,9 +1,14 @@
 $(document).ready(function(){
+  var extension_ID = "chrome-extension://" + chrome.runtime.id + "/";
   var emoji_path = "img/utf/";
-  $.getJSON("chrome-extension://eedkaacfdilidngbhhglkgnppkfihfba/json/utf_emoji_by_categories_non_anime.json", function(emoji) {
-    console.log(emoji)
+  $.getJSON(extension_ID + "json/utf_emoji_by_categories_non_anime.json", function(emoji) {
+    console.log(emoji);
+    var test = document.getElementsByClassName('emojidex_replace')[0].innerHTML.replace(/:[\-\w]+:/g, function(matched_string) {
+      return "hit"
+    });
+    $('.emojidex_replace').empty().append(test);
   })
-  var test = document.getElementsByClassName('emojidex_replace')[0].innerText;
+
 })
 
 // console.log(test)
