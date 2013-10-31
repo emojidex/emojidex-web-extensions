@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var emoji_path = "img/utf/";
-  $.getJSON("chrome-extension://__MSG_@@extension_id__/json/utf_emoji_by_categories_non_anime.json", function(emoji) {
+  $.getJSON("chrome-extension://eedkaacfdilidngbhhglkgnppkfihfba/json/utf_emoji_by_categories_non_anime.json", function(emoji) {
     console.log(emoji)
   })
   var test = document.getElementsByClassName('emojidex_replace')[0].innerText;
