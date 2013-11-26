@@ -1,0 +1,21 @@
+{
+  "name": "emojidex-chrome_extension",
+  "version": "0.0.1",
+  "description": "emojidex for chrome extension",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-contrib-coffee": "~0.7.0"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Genshin/emojidex-chrome_extension.git"
+  },
+  "author": "Genshin",
+  "bugs": {
+    "url": "https://github.com/Genshin/emojidex-chrome_extension/issues"
+  }
+}
