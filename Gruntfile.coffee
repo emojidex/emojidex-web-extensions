@@ -3,13 +3,17 @@ module.exports = (grunt) ->
     # CoffeeScript compilation
     coffee:
       compile:
-        files:
-          "core/background.js": "src/background.coffee"
-          "core/on_click.js": "src/on_click.coffee"
+        files:[
+          expand: true
+          cwd: 'src/'
+          src: ['**/*.coffee']
+          dest: 'core/'
+          ext: '.js'
+        ]
 
     # Watch definitions
     watch:
-      files: ["src/background.coffee", "src/on_click.coffee"]
+      files: "src/**/*.coffee",
       tasks: ["coffee"]
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
