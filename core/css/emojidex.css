@@ -1,0 +1,8 @@
+i[class*="emojidex-"] {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1.5em;
+  height: 1.5em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
