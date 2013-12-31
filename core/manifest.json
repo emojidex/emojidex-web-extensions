@@ -2,6 +2,9 @@
   "name": "emojidex_extension",
   "version": "0.1",
   "manifest_version": 2,
+  "icons": {
+      "32": "icon.png"
+    },
 
   "description": "super naty time & goto genshin web site",
 
