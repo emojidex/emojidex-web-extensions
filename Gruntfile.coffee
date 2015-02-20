@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-  grunt.initConfig  
+  grunt.initConfig
     # CoffeeScript compilation
     coffee:
       compile:
@@ -7,7 +7,7 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'src/'
           src: ['**/*.coffee']
-          dest: 'core/'
+          dest: 'core/js/'
           ext: '.js'
         ]
 
