@@ -8,22 +8,28 @@
 
   "description": "super naty time & goto genshin web site",
 
-  "options_page": "options.html",
+  // "options_page": "options.html",
 
   "permissions" : [
     "tabs", "http://*/*", "https://*/*", "file://*/*"
   ],
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
 
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "file://*/*"],
       "run_at": "document_end",
-      "js": ["jquery.min.js"],
-      "css": ["css/emojidex.css"]
+      "js": [
+        "js/lib/jquery.1.11.2.min.js",
+        "js/lib/emojidex.min.js"
+      ],
+      "css": [
+        "css/emojidex.css",
+        "css/jquery.atwho.min.css"
+      ]
     }
   ],
 
@@ -33,8 +39,6 @@
   },
 
   "web_accessible_resources": [
-    "jquery.min.map",
-    "json/*",
     "img/*"
   ]
 }

@@ -1,3 +1,3 @@
 chrome.browserAction.onClicked.addListener ->
   chrome.tabs.executeScript null,
-    file: "on_click.js"
+    file: "js/on_click.js"
