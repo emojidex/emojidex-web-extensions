@@ -19,8 +19,13 @@ module.exports = (grunt) ->
         ext: '.json'
 
     watch:
-      files: 'src/**/*.coffee',
-      tasks: ['coffee']
+      coffee:
+        files: 'src/**/*.coffee',
+        tasks: ['coffee']
+      cson:
+        files: 'src/**/*.cson',
+        tasks: ['cson']
+
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
