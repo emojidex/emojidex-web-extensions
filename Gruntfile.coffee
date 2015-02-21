@@ -1,6 +1,5 @@
 module.exports = (grunt) ->
   grunt.initConfig
-    # CoffeeScript compilation
     coffee:
       compile:
         files:[
@@ -11,11 +10,19 @@ module.exports = (grunt) ->
           ext: '.js'
         ]
 
-    # Watch definitions
-    watch:
-      files: "src/**/*.coffee",
-      tasks: ["coffee"]
+    cson:
+      glob_to_multiple:
+        expand: true
+        flatten: true
+        src: ['src/**/*.cson' ]
+        dest: 'extension'
+        ext: '.json'
 
-  grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.registerTask "default", ["coffee"]
+    watch:
+      files: 'src/**/*.coffee',
+      tasks: ['coffee']
+
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-cson'
+  grunt.registerTask 'default', ['cson', 'coffee', 'watch']
