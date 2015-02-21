@@ -15,7 +15,12 @@
   ],
 
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": [
+      "js/background.js",
+      "js/lib/jquery.1.11.2.min.js",
+      "js/lib/emojidex.js",
+      "js/test.js"
+    ]
   },
 
   "content_scripts": [
@@ -23,8 +28,6 @@
       "matches": ["http://*/*", "https://*/*", "file://*/*"],
       "run_at": "document_end",
       "js": [
-        "js/lib/jquery.1.11.2.min.js",
-        "js/lib/emojidex.min.js"
       ],
       "css": [
         "css/emojidex.css",
@@ -39,6 +42,6 @@
   },
 
   "web_accessible_resources": [
-    "img/*"
+    "img/*.gif"
   ]
 }

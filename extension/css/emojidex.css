@@ -5,7 +5,7 @@
   height: 1.35em;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-image: url("../img/loading1.gif"); }
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/loading1.gif"); }
 
 img[class*="emojidex-"] {
   display: inline-block;

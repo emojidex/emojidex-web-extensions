@@ -1,3 +1,13 @@
 chrome.browserAction.onClicked.addListener ->
-  chrome.tabs.executeScript null,
-    file: "js/on_click.js"
+  console.log 222
+
+  console.log $
+
+  chrome.tabs.executeScript(
+    null
+    file: "js/lib/jquery.1.11.2.min.js"
+  )
+  chrome.tabs.executeScript(
+    null
+    file: "js/lib/emojidex.js"
+  )
