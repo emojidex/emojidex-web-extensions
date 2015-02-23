@@ -1,1 +1,10 @@
-*.DS_Store
+*.swp
+*.swo
+.DS_Store
+.sass-cache
+node_modules
+bower_components
+npm_debug.log
+npm-debug.log
+build
+.grunt
