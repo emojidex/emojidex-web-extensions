@@ -4,7 +4,7 @@ manifest_version: 2
 icons:
   32: 'icons/icon32.png'
 
-description: 'super naty time & goto genshin web site'
+description: 'Enable emojidex emoji on every page!'
 
 # options_page: 'options.html'
 

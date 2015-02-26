@@ -5,7 +5,7 @@
   "icons": {
     "32": "icons/icon32.png"
   },
-  "description": "super naty time & goto genshin web site",
+  "description": "Enable emojidex emoji on every page!",
   "permissions": [
     "tabs",
     "*://*/*"
