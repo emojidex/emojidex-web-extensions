@@ -1,11 +1,10 @@
 (function() {
   chrome.browserAction.onClicked.addListener(function() {
-    console.log("onClick --------");
     chrome.tabs.executeScript(null, {
       file: "js/lib/jquery.1.11.2.min.js"
     });
     chrome.tabs.executeScript(null, {
-      file: "js/lib/emojidex.js"
+      file: "js/lib/emojidex.min.js"
     });
     return chrome.tabs.getSelected(null, function(tab) {
       return chrome.tabs.executeScript(null, {

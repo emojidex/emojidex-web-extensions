@@ -2,6 +2,6 @@ $("body").emojidexReplace()
 
 if tab_url.match /twitter.com/
   $("[contentEditable=true], textarea").emojidexAutocomplete
-    contentEditablePlaneText: true
+    insertImg: false
 else
   $("[contentEditable=true], textarea").emojidexAutocomplete()
