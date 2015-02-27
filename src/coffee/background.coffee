@@ -1,14 +1,18 @@
+chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) ->
+  unless tab.url.match /\S*google\S*q=/
+    ls = $.localStorage
+    options = ls.get ['auto-replace', 'set-autocomplete']
 
-chrome.browserAction.onClicked.addListener ->
-  chrome.tabs.executeScript null,
-    file: "js/lib/jquery.1.11.2.min.js"
-  chrome.tabs.executeScript null,
-    file: "js/lib/emojidex.min.js"
-  chrome.tabs.getSelected null, (tab) ->
-    chrome.tabs.executeScript(
-      null
-      code: "var tab_url = '#{tab.url}'"
-      ->
-        chrome.tabs.executeScript null,
-        file: "js/on_click.js"
-    )
+    chrome.tabs.executeScript null,
+      file: "js/lib/jquery.min.js"
+    chrome.tabs.executeScript null,
+      file: "js/lib/emojidex.min.js"
+    chrome.tabs.getSelected null, ->
+      chrome.tabs.executeScript(
+        null
+        code: "var tab_url = '#{tab.url}'; var ar = #{options['auto-replace']}; var sa = #{options['set-autocomplete']}"
+        ->
+          chrome.tabs.executeScript null,
+            file: "js/content.js"
+      )
+

@@ -1,20 +1,25 @@
 (function() {
-  chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.executeScript(null, {
-      file: "js/lib/jquery.1.11.2.min.js"
-    });
-    chrome.tabs.executeScript(null, {
-      file: "js/lib/emojidex.min.js"
-    });
-    return chrome.tabs.getSelected(null, function(tab) {
-      return chrome.tabs.executeScript(null, {
-        code: "var tab_url = '" + tab.url + "'"
-      }, function() {
+  chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    var ls, options;
+    if (!tab.url.match(/\S*google\S*q=/)) {
+      ls = $.localStorage;
+      options = ls.get(['auto-replace', 'set-autocomplete']);
+      chrome.tabs.executeScript(null, {
+        file: "js/lib/jquery.min.js"
+      });
+      chrome.tabs.executeScript(null, {
+        file: "js/lib/emojidex.min.js"
+      });
+      return chrome.tabs.getSelected(null, function() {
         return chrome.tabs.executeScript(null, {
-          file: "js/on_click.js"
+          code: "var tab_url = '" + tab.url + "'; var ar = " + options['auto-replace'] + "; var sa = " + options['set-autocomplete']
+        }, function() {
+          return chrome.tabs.executeScript(null, {
+            file: "js/content.js"
+          });
         });
       });
-    });
+    }
   });
 
 }).call(this);

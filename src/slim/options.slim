@@ -4,22 +4,24 @@ html
     link href="../css/lib/bootstrap_and_override.css" rel="stylesheet"
     link href="../css/lib/jquery.atwho.min.css" rel="stylesheet"
     link href="../css/lib/emojidex.css" rel="stylesheet"
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+    script src="../js/lib/jquery.min.js"
     script src="../js/lib/bootstrap.min.js"
-body
-  .container
-    .row
-      .col-md-12
-        h2 Settings
+    script src="../js/lib/jquery.storageapi.min.js"
+    script src="../js/options.js"
+  body
+    .container
+      .row
+        .col-md-12
+          h2 Settings
 
-    .row
-      .col-md-12
-        form
-          .checkbox
-            label
-              input type="checkbox" /
-              | Auto replace
-          .checkbox
-            label
-              input type="checkbox" /
-              | Set autocomplete
+      .row
+        .col-md-12
+          form
+            .checkbox
+              label
+                input#auto-replace type="checkbox"
+                | Auto replace
+            .checkbox
+              label
+                input#set-autocomplete type="checkbox"
+                | Set autocomplete

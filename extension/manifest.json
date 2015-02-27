@@ -1,5 +1,5 @@
 {
-  "name": "emojidex_extension",
+  "name": "emojidex-chrome_extension",
   "version": "0.1.0",
   "manifest_version": 2,
   "icons": {
@@ -11,10 +11,13 @@
   "options_page": "html/options.html",
   "permissions": [
     "tabs",
-    "*://*/*"
+    "http://*/*",
+    "https://*/*"
   ],
   "background": {
     "scripts": [
+      "js/lib/jquery.min.js",
+      "js/lib/jquery.storageapi.min.js",
       "js/background.js"
     ]
   },
@@ -22,8 +25,7 @@
     {
       "matches": [
         "http://*/*",
-        "https://*/*",
-        "file://*/*"
+        "https://*/*"
       ],
       "run_at": "document_end",
       "js": [],

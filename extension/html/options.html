@@ -4,30 +4,32 @@
     <link href="../css/lib/bootstrap_and_override.css" rel="stylesheet" />
     <link href="../css/lib/jquery.atwho.min.css" rel="stylesheet" />
     <link href="../css/lib/emojidex.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/lib/jquery.min.js"></script>
     <script src="../js/lib/bootstrap.min.js"></script>
+    <script src="../js/lib/jquery.storageapi.min.js"></script>
+    <script src="../js/options.js"></script>
   </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>
+            Settings
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="checkbox">
+              <label><input id="auto-replace" type="checkbox" />Auto replace</label>
+            </div>
+            <div class="checkbox">
+              <label><input id="set-autocomplete" type="checkbox" />Set autocomplete</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>
-          Settings
-        </h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <form>
-          <div class="checkbox">
-            <label><input type="checkbox" />Auto replace</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" />Set autocomplete</label>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</body>

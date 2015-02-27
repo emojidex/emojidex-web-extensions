@@ -47,8 +47,14 @@ module.exports = (grunt) ->
           }
           {
             expand: true
-            cwd: 'src/js/lib'
-            src: '**/*'
+            cwd: 'bower_components/jquery.storageapi'
+            src: 'jquery.storageapi.min.js'
+            dest: 'extension/js/lib'
+          }
+          {
+            expand: true
+            cwd: 'bower_components/jquery/dist'
+            src: 'jquery.min.js'
             dest: 'extension/js/lib'
           }
         ]

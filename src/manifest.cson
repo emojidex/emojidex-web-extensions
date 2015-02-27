@@ -12,16 +12,19 @@ options_page: 'html/options.html'
 
 permissions: [
   'tabs'
-  '*://*/*'
+  'http://*/*'
+  'https://*/*'
 ]
 
 background:
   scripts: [
+    'js/lib/jquery.min.js'
+    'js/lib/jquery.storageapi.min.js'
     'js/background.js'
   ]
 
 content_scripts: [
-    matches: ['http://*/*', 'https://*/*', 'file://*/*']
+    matches: ['http://*/*', 'https://*/*']
     run_at: 'document_end'
     js: [
       # "js/lib/jquery.1.11.2.min.js"
