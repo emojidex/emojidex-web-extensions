@@ -1,12 +1,14 @@
-name: 'emojidex_extension'
+name: 'emojidex-chrome_extension'
 version: '0.1.0'
 manifest_version: 2
 icons:
-  32: 'icons/icon32.png'
+  32: 'img/icons/icon32.png'
+  64: 'img/icons/icon64.png'
+  128: 'img/icons/icon128.png'
 
 description: 'Enable emojidex emoji on every page!'
 
-options_page: 'options.html'
+options_page: 'html/options.html'
 
 permissions: [
   'tabs'
@@ -27,13 +29,13 @@ content_scripts: [
       # "js/on_click.js"
     ]
     css: [
-      'css/emojidex.css'
-      'css/jquery.atwho.min.css'
+      'css/lib/jquery.atwho.min.css'
+      'css/lib/emojidex.css'
     ]
 ]
 
 browser_action:
-  default_icon: 'icons/icon32.png'
+  default_icon: 'img/icons/icon32.png'
   default_title: 'emojidex_extension'
 
 web_accessible_resources: [

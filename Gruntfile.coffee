@@ -35,10 +35,30 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            flatten: true
             cwd: 'node_modules/emojidex/dist/js'
-            src: 'emojidex.min.js'
+            src: '**/*'
             dest: 'extension/js/lib'
+          }
+          {
+            expand: true
+            cwd: 'node_modules/emojidex/dist/css'
+            src: '**/*'
+            dest: 'extension/css/lib'
+          }
+          {
+            expand: true
+            cwd: 'src/js/lib'
+            src: '**/*'
+            dest: 'extension/js/lib'
+          }
+        ]
+      img:
+        files: [
+          {
+            expand: true
+            cwd: 'src/img'
+            src: '**/*'
+            dest: 'extension/img'
           }
         ]
 
