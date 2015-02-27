@@ -10,7 +10,6 @@
   executeEmojidex = function() {
     var ls, options;
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
-      console.log("execute ----------------------");
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);
       chrome.tabs.executeScript(null, {
@@ -36,7 +35,6 @@
       active: true,
       currentWindow: true
     }, function(tab_array) {
-      console.log(newTabId);
       if (newTabId === tab_array[0].id) {
         currentTabUrl = tab_array[0].url;
         return callback();

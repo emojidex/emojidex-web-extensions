@@ -67,6 +67,15 @@ module.exports = (grunt) ->
             dest: 'extension/img'
           }
         ]
+      css:
+        files: [
+          {
+            expand: true
+            cwd: 'src/css'
+            src: '**/*'
+            dest: 'extension/css'
+          }
+        ]
 
     watch:
       cson:

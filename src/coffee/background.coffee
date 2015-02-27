@@ -4,7 +4,6 @@ regexpIgnoreUrl = /\S*google\S*q=|chrome:|chrome-extension:|file:|view-source:/
 
 executeEmojidex = ->
   if not currentTabUrl.match(regexpIgnoreUrl)
-    console.log "execute ----------------------"
     ls = $.localStorage
     options = ls.get ['auto-replace', 'set-autocomplete']
 
@@ -30,7 +29,7 @@ setCurrntTabInfo = (callback) ->
     active: true
     currentWindow: true
     (tab_array) ->
-      console.log newTabId
+      # console.log newTabId
       if newTabId is tab_array[0].id
         currentTabUrl = tab_array[0].url
         callback()

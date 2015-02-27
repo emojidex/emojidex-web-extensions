@@ -1,11 +1,9 @@
 (function() {
   $(document).ready(function() {
-    var elm_autocomplete, elm_replace;
+    var elm_autocomplete, elm_replace, loaded_emoji, new_img, reload, _i, _len, _results;
     elm_replace = $("body");
     elm_autocomplete = $("[contentEditable=true], textarea");
-    console.dir(elm_replace.find('.emojidex-emoji'));
-    if (!elm_replace.find('.emojidex-emoji').length) {
-      console.log("execute!!!!! --------------------------------");
+    if (elm_replace.find('.emojidex-emoji').length === 0) {
       elm_replace.emojidexExecuted = true;
       if (ar) {
         elm_replace.emojidexReplace();
@@ -19,6 +17,15 @@
           return elm_autocomplete.emojidexAutocomplete();
         }
       }
+    } else {
+      loaded_emoji = elm_replace.find('.emojidex-emoji');
+      _results = [];
+      for (_i = 0, _len = loaded_emoji.length; _i < _len; _i++) {
+        reload = loaded_emoji[_i];
+        new_img = "<img        class='" + reload.className + "'        src='" + reload.src + "'        title='" + reload.title + "'      ></img>";
+        _results.push($(reload).replaceWith(new_img));
+      }
+      return _results;
     }
   });
 

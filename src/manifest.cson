@@ -33,7 +33,7 @@ content_scripts: [
     ]
     css: [
       'css/lib/jquery.atwho.min.css'
-      'css/lib/emojidex.css'
+      'css/emojidex_crx.css'
     ]
 ]
 
