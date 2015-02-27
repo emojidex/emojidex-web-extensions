@@ -1,14 +1,20 @@
 $(document).ready ->
-  # console.log ar
-  # console.log sa
-  unless @emojidexExecuted?
-    @emojidexExecuted = true
+  elm_replace = $("body")
+  elm_autocomplete = $("[contentEditable=true], textarea")
+
+  console.dir elm_replace.find('.emojidex-emoji')
+
+  unless elm_replace.find('.emojidex-emoji').length
+    console.log "execute!!!!! --------------------------------"
+    elm_replace.emojidexExecuted = true
     if ar
-      $("body").emojidexReplace()
+      elm_replace.emojidexReplace()
+        # onComplete: (replaced_elm) ->
+        #   elm_replace[0].emojidexExecuted = undefined
 
     if sa
       if tab_url.match /twitter.com/
-        $("[contentEditable=true], textarea").emojidexAutocomplete
+        elm_autocomplete.emojidexAutocomplete
           insertImg: false
       else
-        $("[contentEditable=true], textarea").emojidexAutocomplete()
+        elm_autocomplete.emojidexAutocomplete()
