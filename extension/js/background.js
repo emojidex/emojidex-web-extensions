@@ -1,7 +1,7 @@
 (function() {
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     var ls, options;
-    if (!tab.url.match(/\S*google\S*q=/)) {
+    if (!tab.url.match(/\S*google\S*q=|chrome-extension:\S*|file:\S*/)) {
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);
       chrome.tabs.executeScript(null, {

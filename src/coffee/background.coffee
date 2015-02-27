@@ -1,5 +1,5 @@
 chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) ->
-  unless tab.url.match /\S*google\S*q=/
+  unless tab.url.match /\S*google\S*q=|chrome-extension:\S*|file:\S*/
     ls = $.localStorage
     options = ls.get ['auto-replace', 'set-autocomplete']
 
