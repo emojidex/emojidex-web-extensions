@@ -1,7 +1,7 @@
 (function() {
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     var ls, options;
-    if (!tab.url.match(/\S*google\S*q=|chrome-extension:\S*|file:\S*/)) {
+    if (!tab.url.match(/\S*google\S*q=|chrome:\S*|chrome-extension:\S*|file:\S*/)) {
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);
       chrome.tabs.executeScript(null, {
@@ -12,7 +12,7 @@
       });
       return chrome.tabs.getSelected(null, function() {
         return chrome.tabs.executeScript(null, {
-          code: "var tab_url = '" + tab.url + "'; var ar = " + options['auto-replace'] + "; var sa = " + options['set-autocomplete']
+          code: "var          tab_url = '" + tab.url + "',          ar = " + options['auto-replace'] + ",          sa = " + options['set-autocomplete'] + "        "
         }, function() {
           return chrome.tabs.executeScript(null, {
             file: "js/content.js"
