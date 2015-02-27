@@ -1,17 +1,29 @@
 module.exports = (grunt) ->
   grunt.initConfig
+    slim:
+      options:
+        pretty: true
+      crx:
+        files: [
+          expand: true
+          cwd: 'src/slim/'
+          src: '**/*.slim'
+          dest: 'extension/html'
+          ext: '.html'
+        ]
+
     coffee:
-      compile:
+      crx:
         files:[
           expand: true
-          cwd: 'src/'
+          cwd: 'src/coffee'
           src: ['**/*.coffee']
           dest: 'extension/js/'
           ext: '.js'
         ]
 
     cson:
-      glob_to_multiple:
+      crx:
         expand: true
         flatten: true
         src: ['src/**/*.cson' ]
@@ -31,16 +43,20 @@ module.exports = (grunt) ->
         ]
 
     watch:
-      coffee:
-        files: 'src/**/*.coffee',
-        tasks: ['copy', 'coffee']
       cson:
-        files: 'src/**/*.cson',
+        files: 'src/**/*.cson'
         tasks: ['cson']
+      slim:
+        files: 'src/slim/**/*'
+        tasks: ['slim']
+      coffee:
+        files: 'src/coffee/**/*'
+        tasks: ['copy', 'coffee']
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-cson'
-  grunt.registerTask 'default', ['cson', 'copy', 'coffee']
+  grunt.loadNpmTasks 'grunt-slim'
+  grunt.registerTask 'default', ['cson', 'copy', 'slim', 'coffee']
   grunt.registerTask 'dev', ['watch']

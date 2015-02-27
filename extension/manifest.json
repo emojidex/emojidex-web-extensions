@@ -6,6 +6,7 @@
     "32": "icons/icon32.png"
   },
   "description": "Enable emojidex emoji on every page!",
+  "options_page": "options.html",
   "permissions": [
     "tabs",
     "*://*/*"

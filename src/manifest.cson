@@ -6,7 +6,7 @@ icons:
 
 description: 'Enable emojidex emoji on every page!'
 
-# options_page: 'options.html'
+options_page: 'options.html'
 
 permissions: [
   'tabs'
