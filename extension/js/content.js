@@ -1,7 +1,7 @@
 (function() {
   $(document).ready(function() {
-    if (window.emojidexExecuted == null) {
-      window.emojidexExecuted = true;
+    if (this.emojidexExecuted == null) {
+      this.emojidexExecuted = true;
       if (ar) {
         $("body").emojidexReplace();
       }

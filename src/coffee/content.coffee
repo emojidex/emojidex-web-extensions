@@ -1,8 +1,8 @@
 $(document).ready ->
   # console.log ar
   # console.log sa
-  unless window.emojidexExecuted?
-    window.emojidexExecuted = true
+  unless @emojidexExecuted?
+    @emojidexExecuted = true
     if ar
       $("body").emojidexReplace()
 
