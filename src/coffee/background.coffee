@@ -20,4 +20,3 @@ chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) ->
           chrome.tabs.executeScript null,
             file: "js/content.js"
       )
-
