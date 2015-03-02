@@ -44,3 +44,13 @@ chrome.tabs.onActivated.addListener (activeInfo) ->
 
   newTabId = activeInfo.tabId
   setCurrntTabInfo executeEmojidex
+
+chrome.browserAction.onClicked.addListener (tab) ->
+  ls = $.localStorage
+  unless ls.get 'auto-replace'
+    chrome.tabs.executeScript null,
+      file: "js/lib/jquery.min.js"
+    chrome.tabs.executeScript null,
+      file: "js/lib/emojidex.min.js"
+    chrome.tabs.executeScript null,
+      file: "js/on_click.js"

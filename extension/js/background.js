@@ -52,4 +52,20 @@
     return setCurrntTabInfo(executeEmojidex);
   });
 
+  chrome.browserAction.onClicked.addListener(function(tab) {
+    var ls;
+    ls = $.localStorage;
+    if (!ls.get('auto-replace')) {
+      chrome.tabs.executeScript(null, {
+        file: "js/lib/jquery.min.js"
+      });
+      chrome.tabs.executeScript(null, {
+        file: "js/lib/emojidex.min.js"
+      });
+      return chrome.tabs.executeScript(null, {
+        file: "js/on_click.js"
+      });
+    }
+  });
+
 }).call(this);
