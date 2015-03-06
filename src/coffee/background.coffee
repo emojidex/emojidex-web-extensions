@@ -1,6 +1,6 @@
 newTabId = undefined
 currentTabUrl = undefined
-regexpIgnoreUrl = /\S*google\S*q=|chrome:|chrome-extension:|file:|view-source:/
+regexpIgnoreUrl = /http\S*google.\S*|chrome:|chrome-extension:|file:|view-source:/
 
 executeEmojidex = ->
   if not currentTabUrl.match(regexpIgnoreUrl)

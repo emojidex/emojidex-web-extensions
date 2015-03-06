@@ -5,7 +5,7 @@
 
   currentTabUrl = void 0;
 
-  regexpIgnoreUrl = /\S*google\S*q=|chrome:|chrome-extension:|file:|view-source:/;
+  regexpIgnoreUrl = /http\S*google.\S*|chrome:|chrome-extension:|file:|view-source:/;
 
   executeEmojidex = function() {
     var ls, options;
