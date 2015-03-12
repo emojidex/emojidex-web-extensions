@@ -4,9 +4,10 @@
     elm_replace = $("body");
     elm_autocomplete = $("[contentEditable=true], textarea");
     if (elm_replace.find('.emojidex-emoji').length === 0) {
-      elm_replace.emojidexExecuted = true;
       if (ar) {
-        elm_replace.emojidexReplace();
+        elm_replace.emojidexReplace({
+          useLoadingImg: true
+        });
       }
       if (sa) {
         if (tab_url.match(/twitter.com/)) {

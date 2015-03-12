@@ -6,16 +6,18 @@
   elm_autocomplete = $("[contentEditable=true], textarea");
 
   if (elm_replace.find('.emojidex-emoji').length === 0) {
-    elm_replace.emojidexExecuted = true;
-    elm_replace.emojidexReplace();
-    if (sa) {
-      if (tab_url.match(/twitter.com/)) {
-        elm_autocomplete.emojidexAutocomplete({
-          insertImg: false
-        });
-      } else {
-        elm_autocomplete.emojidexAutocomplete();
-      }
+    elm_replace.emojidexReplace({
+      useLoadingImg: false
+    });
+  }
+
+  if (sa) {
+    if (tab_url.match(/twitter.com/)) {
+      elm_autocomplete.emojidexAutocomplete({
+        insertImg: false
+      });
+    } else {
+      elm_autocomplete.emojidexAutocomplete();
     }
   } else {
     loaded_emoji = elm_replace.find('.emojidex-emoji');

@@ -5,10 +5,11 @@
 
   currentTabUrl = void 0;
 
-  regexpIgnoreUrl = /http\S*google.\S*|chrome:|chrome-extension:|file:|view-source:/;
+  regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/;
 
   executeEmojidex = function() {
     var ls, options;
+    console.log(currentTabUrl);
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);

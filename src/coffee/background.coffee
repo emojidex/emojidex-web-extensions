@@ -1,8 +1,9 @@
 newTabId = undefined
 currentTabUrl = undefined
-regexpIgnoreUrl = /http\S*google.\S*|chrome:|chrome-extension:|file:|view-source:/
+regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/
 
 executeEmojidex = ->
+  console.log currentTabUrl
   if not currentTabUrl.match(regexpIgnoreUrl)
     ls = $.localStorage
     options = ls.get ['auto-replace', 'set-autocomplete']
