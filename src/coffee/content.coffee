@@ -5,7 +5,7 @@ $(document).ready ->
   if elm_replace.find('.emojidex-emoji').length is 0
     if ar
       elm_replace.emojidexReplace
-        useLoadingImg: true
+        useLoadingImg: false
 
     if sa
       if tab_url.match /twitter.com/
