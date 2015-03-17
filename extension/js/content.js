@@ -6,7 +6,7 @@
     if (elm_replace.find('.emojidex-emoji').length === 0) {
       if (ar) {
         elm_replace.emojidexReplace({
-          useLoadingImg: true
+          useLoadingImg: false
         });
       }
       if (sa) {
