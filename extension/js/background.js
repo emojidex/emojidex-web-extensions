@@ -9,7 +9,6 @@
 
   executeEmojidex = function() {
     var ls, options;
-    console.log(currentTabUrl);
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);

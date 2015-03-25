@@ -3,7 +3,7 @@ currentTabUrl = undefined
 regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/
 
 executeEmojidex = ->
-  console.log currentTabUrl
+  # console.log currentTabUrl
   if not currentTabUrl.match(regexpIgnoreUrl)
     ls = $.localStorage
     options = ls.get ['auto-replace', 'set-autocomplete']
