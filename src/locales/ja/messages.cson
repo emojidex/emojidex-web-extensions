@@ -2,3 +2,10 @@ name:
   message: 'emojidex'
 description:
   message: 'emojidexの絵文字を、全てのページへ！'
+
+options_header:
+  message: '設定'
+options_auto_replace:
+  message: '自動的に絵文字へ置換する。'
+options_set_autocomplete:
+  message: 'フォームにemojidexのオートコンプリートを設定する。'

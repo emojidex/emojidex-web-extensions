@@ -2,3 +2,10 @@ name:
   message: 'emojidex'
 description:
   message: 'Enable emojidex emoji on every page!'
+
+options_header:
+  message: 'Settings'
+options_auto_replace:
+  message: 'Auto replace to emoji.'
+options_set_autocomplete:
+  message: 'Set emojidex autocomplete to forms.'
