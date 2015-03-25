@@ -23,11 +23,25 @@ module.exports = (grunt) ->
         ]
 
     cson:
-      crx:
+      manifest:
         expand: true
         flatten: true
-        src: ['src/**/*.cson' ]
+        src: ['src/manifest.cson' ]
         dest: 'extension'
+        ext: '.json'
+
+      locales_ja:
+        expand: true
+        flatten: true
+        src: ['src/locales/ja/*' ]
+        dest: 'extension/_locales/ja'
+        ext: '.json'
+
+      locales_en:
+        expand: true
+        flatten: true
+        src: ['src/locales/en/*' ]
+        dest: 'extension/_locales/en'
         ext: '.json'
 
     copy:
@@ -78,9 +92,15 @@ module.exports = (grunt) ->
         ]
 
     watch:
-      cson:
-        files: 'src/**/*.cson'
-        tasks: ['cson']
+      manifest:
+        files: 'src/manifest.cson'
+        tasks: ['cson:manifest']
+      locales_ja:
+        files: 'src/locales/ja/*'
+        tasks: ['cson:locales_ja']
+      locales_en:
+        files: 'src/locales/en/*'
+        tasks: ['cson:locales_en']
       slim:
         files: 'src/slim/**/*'
         tasks: ['slim']
