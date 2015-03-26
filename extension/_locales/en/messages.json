@@ -9,9 +9,9 @@
     "message": "Settings"
   },
   "options_auto_replace": {
-    "message": "Auto replace to emoji."
+    "message": "Automatically convert emoji codes to emoji."
   },
   "options_set_autocomplete": {
-    "message": "Set emojidex autocomplete to forms."
+    "message": "Enable emoji autocomplete in text boxes."
   }
 }
