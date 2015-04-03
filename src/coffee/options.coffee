@@ -19,9 +19,14 @@ $(document).ready ->
   $('form#setting').append forms
 
   ls = $.localStorage
-  options = ls.get option_names
-  for option of options
-    $("##{option}")[0].checked = true if options[option]
+  if ls.isSet option_names
+    options = ls.get option_names
+    for option of options
+      $("##{option}")[0].checked = true if options[option]
+  else
+    for option in option_names
+      ls.set option, true
+      $("##{option}")[0].checked = true
 
   $('#auto-replace, #set-autocomplete').click (e)->
     ls.set e.currentTarget.id, e.currentTarget.checked
