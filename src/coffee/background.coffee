@@ -11,7 +11,8 @@ executeEmojidex = ->
     chrome.tabs.executeScript null,
       file: "js/lib/jquery.min.js"
     chrome.tabs.executeScript null,
-      file: "js/lib/emojidex.min.js"
+      file: "js/lib/emojidex.js"
+      # file: "js/lib/emojidex.min.js"
     chrome.tabs.getSelected null, ->
       chrome.tabs.executeScript(
         null
