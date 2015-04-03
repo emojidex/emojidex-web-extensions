@@ -5,6 +5,18 @@
   "description": {
     "message": "emojidexの絵文字を、全てのページへ！"
   },
+  "options_nav_licensing_info": {
+    "message": "ライセンス情報"
+  },
+  "options_licensing_description": {
+    "message": "ライセンスのお問い合わせ先："
+  },
+  "options_licensing_header_1": {
+    "message": "印刷物、立体物及びメディア"
+  },
+  "options_licensing_header_2": {
+    "message": "デジタル関連 / ソフトウェア / デジタルメディア"
+  },
   "options_header": {
     "message": "設定"
   },

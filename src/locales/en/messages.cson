@@ -3,6 +3,15 @@ name:
 description:
   message: 'Enable emojidex emoji on every page!'
 
+options_nav_licensing_info:
+  message: 'Licensing info'
+options_licensing_description:
+  message: 'For licenses please contact:'
+options_licensing_header_1:
+  message: 'Print and Physical Works and Media'
+options_licensing_header_2:
+  message: 'Virtual Works / Software / Virtual Media'
+
 options_header:
   message: 'Settings'
 options_auto_replace:
