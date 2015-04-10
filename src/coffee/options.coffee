@@ -4,9 +4,7 @@ $(document).ready ->
   $('#header').append "<h2>#{gm 'options_header'}</h2>"
   $('#licensing_info-btn').text gm 'options_nav_licensing_info'
   $('#licensing_info-title').text gm 'options_nav_licensing_info'
-  $('#licensing-header-1').text gm 'options_licensing_header_1'
-  $('#licensing-header-2').text gm 'options_licensing_header_2'
-  $('#licensing-description').text gm 'options_licensing_description'
+  $('#licensing-description').replaceWith gm 'options_licensing_description'
 
   option_names = [
     'auto-replace'

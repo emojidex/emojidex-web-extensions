@@ -9,13 +9,7 @@
     "message": "ライセンス情報"
   },
   "options_licensing_description": {
-    "message": "ライセンスのお問い合わせ先："
-  },
-  "options_licensing_header_1": {
-    "message": "印刷物、立体物及びメディア"
-  },
-  "options_licensing_header_2": {
-    "message": "デジタル関連 / ソフトウェア / デジタルメディア"
+    "message": "emojidexは<a href=\"https://www.emojidex.com/emojidex/emojidex_general_license_terms_and_conditions\">emojidex一般使用許諾条件</a>を元に、<a href=\"https://www.emojidex.com/emojidex/emojidex_open_license\">emojidexオープンライセンス</a>が適用されています。<br>emojidexの絵文字アセットライセンスについては<a href=\"https://www.emojidex.com/emojidex/emojidex_emoji_license\">emojidex™ emoji ライセンス</a>をご参照下さい。"
   },
   "options_header": {
     "message": "設定"

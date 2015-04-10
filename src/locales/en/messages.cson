@@ -6,11 +6,7 @@ description:
 options_nav_licensing_info:
   message: 'Licensing info'
 options_licensing_description:
-  message: 'For licenses please contact:'
-options_licensing_header_1:
-  message: 'Print and Physical Works and Media'
-options_licensing_header_2:
-  message: 'Virtual Works / Software / Virtual Media'
+  message: 'emojidex is licensed under the <a href="https://www.emojidex.com/emojidex/emojidex_open_license">emojidex Open License</a> under the <a href="https://www.emojidex.com/emojidex/emojidex_general_license_terms_and_conditions">terms of the emojidex General License</a>. For licenses or sub-licenses on emojidex emoji assets please refer to the <a href="https://www.emojidex.com/emojidex/emojidex_emoji_license">emojidex™ emoji license</a> information.'
 
 options_header:
   message: 'Settings'
