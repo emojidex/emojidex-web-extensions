@@ -3,7 +3,7 @@
   "default_locale": "en",
   "name": "__MSG_name__",
   "description": "__MSG_description__",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "icons": {
     "32": "img/icons/icon32.png",
     "64": "img/icons/icon64.png",
@@ -29,7 +29,9 @@
         "https://*/*"
       ],
       "run_at": "document_end",
-      "js": [],
+      "js": [
+        "js/lib/jquery.min.js"
+      ],
       "css": [
         "css/lib/jquery.atwho.min.css",
         "css/emojidex_crx.css"
@@ -38,9 +40,10 @@
   ],
   "browser_action": {
     "default_icon": "img/icons/icon32.png",
-    "default_title": "emojidex_extension"
+    "default_title": "emojidex"
   },
   "web_accessible_resources": [
-    "img/*.gif"
+    "img/*.gif",
+    "js/lib/*.map"
   ]
 }

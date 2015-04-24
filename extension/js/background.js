@@ -13,10 +13,7 @@
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete']);
       chrome.tabs.executeScript(null, {
-        file: "js/lib/jquery.min.js"
-      });
-      chrome.tabs.executeScript(null, {
-        file: "js/lib/emojidex.js"
+        file: "js/lib/emojidex.min.js"
       });
       return chrome.tabs.getSelected(null, function() {
         return chrome.tabs.executeScript(null, {
