@@ -14,8 +14,17 @@
   "options_header": {
     "message": "Settings"
   },
+  "options_auto_replace_header": {
+    "message": "Settings for convert"
+  },
   "options_auto_replace": {
     "message": "Automatically convert emoji codes to emoji."
+  },
+  "options_auto_update": {
+    "message": "Automatically convert emoji codes to emoji when an element is added to the page."
+  },
+  "options_set_autocomplete_header": {
+    "message": "Settings for autocomplete"
   },
   "options_set_autocomplete": {
     "message": "Enable emoji autocomplete in text boxes."

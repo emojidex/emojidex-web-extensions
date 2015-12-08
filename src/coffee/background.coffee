@@ -6,7 +6,7 @@ executeEmojidex = ->
   # console.log currentTabUrl
   if not currentTabUrl.match(regexpIgnoreUrl)
     ls = $.localStorage
-    options = ls.get ['auto-replace', 'set-autocomplete']
+    options = ls.get ['auto-replace', 'set-autocomplete', 'auto-update']
 
     chrome.tabs.executeScript null,
       # file: "js/lib/emojidex.js"
@@ -16,8 +16,9 @@ executeEmojidex = ->
         null
         code: "var
           tab_url = '#{currentTabUrl}',
-          ar = #{options['auto-replace']},
-          sa = #{options['set-autocomplete']}
+          autoReplace = #{options['auto-replace']},
+          setAutocomplete = #{options['set-autocomplete']},
+          autoUpdate = #{options['auto-update']}
         "
         ->
           chrome.tabs.executeScript null,

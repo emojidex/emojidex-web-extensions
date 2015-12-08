@@ -14,10 +14,19 @@
   "options_header": {
     "message": "設定"
   },
+  "options_auto_replace_header": {
+    "message": "絵文字の置き換えに関する設定"
+  },
   "options_auto_replace": {
     "message": "自動的に絵文字へ置換する。"
   },
   "options_set_autocomplete": {
     "message": "フォームにemojidexのオートコンプリートを設定する。"
+  },
+  "options_set_autocomplete_header": {
+    "message": "絵文字のフォームに関する設定"
+  },
+  "options_auto_update": {
+    "message": "ページに要素が追加された時、自動的に絵文字へ置換する。"
   }
 }

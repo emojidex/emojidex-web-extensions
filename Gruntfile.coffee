@@ -108,10 +108,14 @@ module.exports = (grunt) ->
         files: 'src/coffee/**/*'
         tasks: ['copy', 'coffee']
 
+    connect:
+      test_page: {}
+
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-cson'
   grunt.loadNpmTasks 'grunt-slim'
   grunt.registerTask 'default', ['cson', 'copy', 'slim', 'coffee']
-  grunt.registerTask 'dev', ['watch']
+  grunt.registerTask 'dev', ['connect', 'watch']

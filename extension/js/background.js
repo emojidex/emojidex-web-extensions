@@ -11,13 +11,13 @@
     var ls, options;
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
       ls = $.localStorage;
-      options = ls.get(['auto-replace', 'set-autocomplete']);
+      options = ls.get(['auto-replace', 'set-autocomplete', 'auto-update']);
       chrome.tabs.executeScript(null, {
         file: "js/lib/emojidex.min.js"
       });
       return chrome.tabs.getSelected(null, function() {
         return chrome.tabs.executeScript(null, {
-          code: "var          tab_url = '" + currentTabUrl + "',          ar = " + options['auto-replace'] + ",          sa = " + options['set-autocomplete'] + "        "
+          code: "var          tab_url = '" + currentTabUrl + "',          autoReplace = " + options['auto-replace'] + ",          setAutocomplete = " + options['set-autocomplete'] + ",          autoUpdate = " + options['auto-update'] + "        "
         }, function() {
           return chrome.tabs.executeScript(null, {
             file: "js/content.js"

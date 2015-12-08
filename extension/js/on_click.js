@@ -11,7 +11,7 @@
     });
   }
 
-  if (sa) {
+  if (setAutocomplete) {
     if (tab_url.match(/twitter.com/)) {
       elm_autocomplete.emojidexAutocomplete({
         insertImg: false
@@ -26,6 +26,16 @@
       new_img = "<img      class='" + reload.className + "'      src='" + reload.src + "'      title='" + reload.title + "'    ></img>";
       $(reload).replaceWith(new_img);
     }
+  }
+
+  if (autoUpdate) {
+    elm_replace.emojidexReplace({
+      autoUpdate: true
+    });
+  } else {
+    elm_replace.emojidexReplace({
+      autoUpdate: false
+    });
   }
 
 }).call(this);
