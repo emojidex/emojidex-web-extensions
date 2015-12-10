@@ -30,12 +30,8 @@
         "https://*/*"
       ],
       "run_at": "document_end",
-      "js": [
-        "js/lib/jquery.min.js"
-      ],
       "css": [
-        "css/lib/jquery.atwho.min.css",
-        "css/emojidex_crx.css"
+        "css/lib/emojidex.min.css"
       ]
     }
   ],

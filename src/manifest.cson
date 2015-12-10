@@ -30,14 +30,8 @@ background:
 content_scripts: [
     matches: ['http://*/*', 'https://*/*']
     run_at: 'document_end'
-    js: [
-      "js/lib/jquery.min.js"
-      # "js/lib/emojidex.min.js"
-      # "js/on_click.js"
-    ]
     css: [
-      'css/lib/jquery.atwho.min.css'
-      'css/emojidex_crx.css'
+      'css/lib/emojidex.min.css'
     ]
 ]
 

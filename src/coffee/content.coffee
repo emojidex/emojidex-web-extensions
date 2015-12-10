@@ -4,8 +4,10 @@ $(document).ready ->
 
   if elm_replace.find('.emojidex-emoji').length is 0
     if autoReplace
-      elm_replace.emojidexReplace
-        useLoadingImg: true
+      options = {}
+      options.autoUpdate = autoUpdate
+
+      elm_replace.emojidexReplace options
 
     if setAutocomplete
       if tab_url.match /twitter.com/
@@ -22,10 +24,3 @@ $(document).ready ->
         title='#{reload.title}'
       ></img>"
       $(reload).replaceWith new_img
-
-  if autoUpdate
-    elm_replace.emojidexReplace
-      autoUpdate: true
-  else
-    elm_replace.emojidexReplace
-      autoUpdate: false

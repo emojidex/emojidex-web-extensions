@@ -2,8 +2,11 @@ elm_replace = $("body")
 elm_autocomplete = $("[contentEditable=true], textarea")
 
 if elm_replace.find('.emojidex-emoji').length is 0
-    elm_replace.emojidexReplace
-      useLoadingImg: false
+  options = {}
+  options.autoReplace = autoReplace
+  options.autoUpdate = autoUpdate
+
+  elm_replace.emojidexReplace options
 
   if setAutocomplete
     if tab_url.match /twitter.com/
@@ -20,10 +23,3 @@ else
       title='#{reload.title}'
     ></img>"
     $(reload).replaceWith new_img
-
-if autoUpdate
-  elm_replace.emojidexReplace
-    autoUpdate: true
-else
-  elm_replace.emojidexReplace
-    autoUpdate: false
