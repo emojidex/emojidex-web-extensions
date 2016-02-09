@@ -36,8 +36,12 @@ $(document).ready ->
       $("##{option}")[0].checked = true if options[option]
   else
     for option in option_names
-      ls.set option, true
-      $("##{option}")[0].checked = true
+      if option is 'auto-update'
+        ls.set option, false
+        $("##{option}")[0].checked = false
+      else
+        ls.set option, true
+        $("##{option}")[0].checked = true
 
   $('#auto-replace').click (e)->
     ls.set e.currentTarget.id, e.currentTarget.checked

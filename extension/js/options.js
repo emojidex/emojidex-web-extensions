@@ -24,8 +24,13 @@
     } else {
       for (_i = 0, _len = option_names.length; _i < _len; _i++) {
         option = option_names[_i];
-        ls.set(option, true);
-        $("#" + option)[0].checked = true;
+        if (option === 'auto-update') {
+          ls.set(option, false);
+          $("#" + option)[0].checked = false;
+        } else {
+          ls.set(option, true);
+          $("#" + option)[0].checked = true;
+        }
       }
     }
     $('#auto-replace').click(function(e) {
