@@ -20,13 +20,13 @@
   "options_auto_replace": {
     "message": "自動的に絵文字へ置換する。"
   },
-  "options_set_autocomplete": {
-    "message": "フォームにemojidexのオートコンプリートを設定する。"
+  "options_auto_update": {
+    "message": "ページに要素が追加された時、自動的に絵文字へ置換する。（β版機能です。これを有効にするとページに依っては処理が重くなる可能性があります）"
   },
   "options_set_autocomplete_header": {
     "message": "絵文字のフォームに関する設定"
   },
-  "options_auto_update": {
-    "message": "ページに要素が追加された時、自動的に絵文字へ置換する。（β版機能です。これを有効にするとページに依っては処理が重くなる可能性があります）"
+  "options_set_autocomplete": {
+    "message": "フォームにemojidexのオートコンプリートを設定する。"
   }
 }

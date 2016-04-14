@@ -21,7 +21,7 @@
     "message": "Automatically convert emoji codes to emoji."
   },
   "options_auto_update": {
-    "message": "Automatically convert emoji codes to emoji when an element is added to the page."
+    "message": "This option is Beta: Automatically convert emoji codes to emoji when an element is added to the page."
   },
   "options_set_autocomplete_header": {
     "message": "Settings for autocomplete"
