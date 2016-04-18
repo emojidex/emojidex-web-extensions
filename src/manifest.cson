@@ -38,6 +38,7 @@ content_scripts: [
 browser_action:
   default_icon: 'img/icons/icon32.png'
   default_title: 'emojidex'
+  default_popup: 'html/popup.html'
 
 web_accessible_resources: [
   'img/*.gif'
