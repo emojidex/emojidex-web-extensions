@@ -12,19 +12,21 @@
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
       ls = $.localStorage;
       options = ls.get(['auto-replace', 'set-autocomplete', 'auto-update']);
-      chrome.tabs.executeScript(null, {
-        file: "js/lib/jquery.min.js"
-      });
-      chrome.tabs.executeScript(null, {
-        file: "js/lib/emojidex.min.js"
-      });
-      return chrome.tabs.getSelected(null, function() {
+      return chrome.tabs.query({
+        active: true,
+        highlighted: true
+      }, function() {
+        chrome.tabs.executeScript(null, {
+          file: "js/lib/jquery.min.js"
+        });
+        chrome.tabs.executeScript(null, {
+          file: "js/lib/emojidex.min.js"
+        });
+        chrome.tabs.executeScript(null, {
+          code: "var          tab_url = '" + currentTabUrl + "',          autoReplace = " + options['auto-replace'] + ",          setAutocomplete = " + options['set-autocomplete'] + ",          autoUpdate = " + options['auto-update'] + ";        "
+        });
         return chrome.tabs.executeScript(null, {
-          code: "var          tab_url = '" + currentTabUrl + "',          autoReplace = " + options['auto-replace'] + ",          setAutocomplete = " + options['set-autocomplete'] + ",          autoUpdate = " + options['auto-update'] + "        "
-        }, function() {
-          return chrome.tabs.executeScript(null, {
-            file: "js/content.js"
-          });
+          file: "js/content.js"
         });
       });
     }
@@ -43,8 +45,10 @@
   };
 
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    newTabId = tab.id;
-    return setCurrntTabInfo(executeEmojidex);
+    if (changeInfo.status === 'complete') {
+      newTabId = tab.id;
+      return setCurrntTabInfo(executeEmojidex);
+    }
   });
 
   chrome.tabs.onActivated.addListener(function(activeInfo) {

@@ -8,24 +8,21 @@ executeEmojidex = ->
     ls = $.localStorage
     options = ls.get ['auto-replace', 'set-autocomplete', 'auto-update']
 
-    chrome.tabs.executeScript null,
-      file: "js/lib/jquery.min.js"
-    chrome.tabs.executeScript null,
-      # file: "js/lib/emojidex.js"
-      file: "js/lib/emojidex.min.js"
-    chrome.tabs.getSelected null, ->
-      chrome.tabs.executeScript(
-        null
+    chrome.tabs.query {active: true, highlighted: true}, ->
+      chrome.tabs.executeScript null,
+        file: "js/lib/jquery.min.js"
+      chrome.tabs.executeScript null,
+        # file: "js/lib/emojidex.js"
+        file: "js/lib/emojidex.min.js"
+      chrome.tabs.executeScript null,
         code: "var
           tab_url = '#{currentTabUrl}',
           autoReplace = #{options['auto-replace']},
           setAutocomplete = #{options['set-autocomplete']},
-          autoUpdate = #{options['auto-update']}
+          autoUpdate = #{options['auto-update']};
         "
-        ->
-          chrome.tabs.executeScript null,
-            file: "js/content.js"
-      )
+      chrome.tabs.executeScript null,
+        file: "js/content.js"
 
 setCurrntTabInfo = (callback) ->
   chrome.tabs.query
@@ -38,8 +35,9 @@ setCurrntTabInfo = (callback) ->
         callback()
 
 chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) ->
-  newTabId = tab.id
-  setCurrntTabInfo executeEmojidex
+  if changeInfo.status == 'complete'
+    newTabId = tab.id
+    setCurrntTabInfo executeEmojidex
 
 chrome.tabs.onActivated.addListener (activeInfo) ->
   # console.log "activeInfo -----"
