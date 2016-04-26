@@ -90,6 +90,15 @@ module.exports = (grunt) ->
             dest: 'extension/css'
           }
         ]
+      fonts:
+        files: [
+          {
+            expand: true
+            cwd: 'node_modules/emojidex/dist/fonts'
+            src: '**/*'
+            dest: 'extension/css/fonts'
+          }
+        ]
 
     watch:
       manifest:
