@@ -118,7 +118,10 @@ module.exports = (grunt) ->
         tasks: ['copy', 'coffee']
 
     connect:
-      test_page: {}
+      test_page:
+        options:
+          port: 9000
+          # port: 8000
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
