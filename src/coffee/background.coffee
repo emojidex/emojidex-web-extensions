@@ -48,12 +48,6 @@ chrome.tabs.onActivated.addListener (activeInfo) ->
 
 # use popup window
 
-# chrome.browserAction.onClicked.addListener (tab) ->
-#   ls = $.localStorage
-#   unless ls.get 'auto-replace'
-#     chrome.tabs.executeScript null,
-#       file: "js/lib/jquery.min.js"
-#     chrome.tabs.executeScript null,
-#       file: "js/lib/emojidex.min.js"
-#     chrome.tabs.executeScript null,
-#       file: "js/on_click.js"
+chrome.browserAction.onClicked.addListener (tab) ->
+  chrome.tabs.executeScript null,
+    file: "js/on_click.js"
