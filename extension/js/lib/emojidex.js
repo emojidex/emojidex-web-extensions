@@ -1,5 +1,5 @@
 /*
- * jQuery emojidex - v0.10.0
+ * jQuery emojidex - v0.10.1
  * emojidex plugin for jQuery/Zepto and compatible
  * https://github.com/emojidex/emojidex-web
  *
@@ -407,9 +407,9 @@
     }
 
     Pallet.prototype.createDialog = function() {
-      this.dialog = $('<div id="emojidex-dialog"></div>');
-      $('body').append(this.dialog);
+      this.dialog = $('<div id="emojidex-dialog-content"></div>');
       return this.dialog.dialog({
+        dialogClass: 'emojidex-ui-dialog',
         autoOpen: false,
         width: 700,
         title: 'Emojidex Pallet',
@@ -418,9 +418,10 @@
           $('.ui-dialog-titlebar-close').hide();
           close_btn = $('<button type="button" class="btn btn-default btn-xs pull-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
           close_btn.click(function(e) {
-            return $('#emojidex-dialog').dialog('close');
+            return $('#emojidex-dialog-content').dialog('close');
           });
-          return $('.ui-dialog-titlebar').append(close_btn);
+          $('.ui-dialog-titlebar').append(close_btn);
+          return $('.emojidex-ui-dialog').wrap('<span id="emojidex-emoji-pallet"></span>');
         },
         open: function(e) {
           $('.ui-dialog :button').blur();
@@ -875,6 +876,9 @@
                   success: function(response) {
                     var regexp;
                     regexp = response.moji_array.join('|');
+                    regexp = regexp.replace(/\*|\$|\+|\?/g, function(matched_string) {
+                      return '\\' + matched_string;
+                    });
                     _this.options.regexpUtf = RegExp(regexp, 'g');
                     _this.options.utfEmojiData = response.moji_index;
                     return _this.EC.Data.storage.update('emojidex.utfInfoUpdated', new Date().toString()).then(function() {

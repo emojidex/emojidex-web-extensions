@@ -27,13 +27,13 @@ background:
     'js/background.js'
   ]
 
-content_scripts: [
-    matches: ['http://*/*', 'https://*/*']
-    run_at: 'document_end'
-    css: [
-      'css/lib/emojidex.min.css'
-    ]
-]
+# content_scripts: [
+#     matches: ['http://*/*', 'https://*/*']
+#     run_at: 'document_end'
+#     css: [
+#       'css/lib/emojidex.min.css'
+#     ]
+# ]
 
 browser_action:
   default_icon: 'img/icons/icon32.png'
@@ -42,4 +42,5 @@ browser_action:
 web_accessible_resources: [
   'img/*.gif'
   'js/lib/*.map'
+  'css/lib/emojidex.min.css'
 ]
