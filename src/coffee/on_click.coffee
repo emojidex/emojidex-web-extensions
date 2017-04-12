@@ -1,9 +1,9 @@
 $(document).ready ->
-  if $('#emojidex-pallet-btn-crx').length is 0
-    pallet_btn = $ '<span id="emojidex-pallet-btn-crx">'
-    $('body').append pallet_btn
-    pallet_btn.emojidexPallet
+  if $('#emojidex-palette-btn-crx').length is 0
+    palette_btn = $ '<span id="emojidex-palette-btn-crx">'
+    $('body').append palette_btn
+    palette_btn.emojidexPalette
       onComplete: (e) =>
-        pallet_btn.click()
+        palette_btn.click()
   else
-    $('#emojidex-pallet-btn-crx').click()
+    $('#emojidex-palette-btn-crx').click()
