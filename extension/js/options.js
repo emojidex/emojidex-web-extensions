@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var auto_replace_forms, gm, ls, option, option_names, options, set_autocomplete_forms, _i, _len;
+    var auto_replace_forms, gm, i, len, ls, option, option_names, options, set_autocomplete_forms;
     gm = chrome.i18n.getMessage;
     $('#header').append("<h2>" + (gm('options_header')) + "</h2>");
     $('#licensing_info-btn').text(gm('options_nav_licensing_info'));
@@ -8,7 +8,7 @@
     $('#licensing-description').replaceWith(gm('options_licensing_description'));
     option_names = ['auto-replace', 'auto-update', 'set-autocomplete'];
     $('#optiom-auto-replace').find('h4').append(gm('options_auto_replace_header'));
-    auto_replace_forms = ["<ul style='padding-left: 0px;'>      <li class='checkbox'><label><input id='" + option_names[0] + "' type='checkbox'>" + (gm('options_auto_replace')) + "</label>      <ul>        <li class='checkbox'><label><input id='" + option_names[1] + "' type='checkbox'>" + (gm('options_auto_update')) + "</label>      </ul>    </ul>"];
+    auto_replace_forms = ["<ul style='padding-left: 0px;'> <li class='checkbox'><label><input id='" + option_names[0] + "' type='checkbox'>" + (gm('options_auto_replace')) + "</label> <ul> <li class='checkbox'><label><input id='" + option_names[1] + "' type='checkbox'>" + (gm('options_auto_update')) + "</label> </ul> </ul>"];
     $('#optiom-auto-replace').find('form').append(auto_replace_forms);
     $('#option-set-autocomplete').find('h4').append(gm('options_set_autocomplete_header'));
     set_autocomplete_forms = ["<div class='checkbox'><label><input id='" + option_names[2] + "' type='checkbox'>" + (gm('options_set_autocomplete')) + "</label></div>"];
@@ -22,8 +22,8 @@
         }
       }
     } else {
-      for (_i = 0, _len = option_names.length; _i < _len; _i++) {
-        option = option_names[_i];
+      for (i = 0, len = option_names.length; i < len; i++) {
+        option = option_names[i];
         if (option === 'auto-update') {
           ls.set(option, false);
           $("#" + option)[0].checked = false;

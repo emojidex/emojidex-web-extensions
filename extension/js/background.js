@@ -23,7 +23,7 @@
           file: "js/lib/emojidex.min.js"
         });
         chrome.tabs.executeScript(null, {
-          code: "var          tab_url = '" + currentTabUrl + "',          autoReplace = " + options['auto-replace'] + ",          setAutocomplete = " + options['set-autocomplete'] + ",          autoUpdate = " + options['auto-update'] + ";        "
+          code: "var tab_url = '" + currentTabUrl + "', autoReplace = " + options['auto-replace'] + ", setAutocomplete = " + options['set-autocomplete'] + ", autoUpdate = " + options['auto-update'] + ";"
         });
         return chrome.tabs.executeScript(null, {
           file: "js/content.js"
