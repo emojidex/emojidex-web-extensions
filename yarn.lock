@@ -204,9 +204,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-emojidex@>=0.3.0:
-  version "0.14.6"
-  resolved "https://registry.yarnpkg.com/emojidex/-/emojidex-0.14.6.tgz#a97a2ba1af3c21e3eda354d489e070e2f4c4bd54"
+emojidex@>=0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/emojidex/-/emojidex-0.15.2.tgz#095776bca69e87b52eb881c7bef28e94f9437283"
   dependencies:
     clipboard "^1.5.5"
 
