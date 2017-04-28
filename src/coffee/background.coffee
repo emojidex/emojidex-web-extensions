@@ -49,5 +49,9 @@ chrome.tabs.onActivated.addListener (activeInfo) ->
 # use popup window
 
 chrome.browserAction.onClicked.addListener (tab) ->
+  ls = $.localStorage
+  option = ls.get 'embed-palettebutton'
+  chrome.tabs.executeScript null,
+    code: "var embedPaletteButton = #{option};"
   chrome.tabs.executeScript null,
     file: "js/on_click.js"
