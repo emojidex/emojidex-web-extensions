@@ -3,7 +3,7 @@
   "version": "0.3.4",
   "description": "emojidex for chrome extension",
   "devDependencies": {
-    "emojidex": ">=0.15.2",
+    "emojidex": ">=0.16.1",
     "grunt": "~1.0.1",
     "grunt-cli": "~1.2.0",
     "grunt-contrib-coffee": "~1.0.0",
