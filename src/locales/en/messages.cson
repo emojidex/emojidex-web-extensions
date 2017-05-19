@@ -26,4 +26,4 @@ options_set_autocomplete:
 options_embed_palettebutton_header:
   message: 'Settings for emojidex palette'
 options_embed_palettebutton:
-  message: 'When clicking the button of the extention, embed button to display emojidex palette in all input/textarea.'
+  message: 'Embed button to display emojidex palette in all input/textarea.'

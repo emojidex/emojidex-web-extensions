@@ -23,3 +23,11 @@ $(document).ready ->
         insertImg: false
     else
       elm_autocomplete.emojidexAutocomplete()
+
+  if embedPaletteButton
+    elements = $('input[type=text], textarea').toArray()
+    if $('#emojidex-emoji-palette').length is 0 && elements.length > 0
+      $(elements.pop()).emojidexPalette
+        onComplete: (e) =>
+          for element, index in elements
+            $(element).emojidexPalette()

@@ -26,4 +26,4 @@ options_set_autocomplete:
 options_embed_palettebutton_header:
   message: '絵文字パレットに関する設定'
 options_embed_palettebutton:
-  message: '拡張機能のボタンを押した時、全てのinput/textareaに絵文字パレット表示ボタンを埋め込む。'
+  message: '全てのinput/textareaに絵文字パレット表示ボタンを埋め込む。'

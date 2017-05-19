@@ -6,7 +6,7 @@ executeEmojidex = ->
   # console.log currentTabUrl
   if not currentTabUrl.match(regexpIgnoreUrl)
     ls = $.localStorage
-    options = ls.get ['auto-replace', 'set-autocomplete', 'auto-update']
+    options = ls.get ['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton']
 
     chrome.tabs.query {active: true, highlighted: true}, ->
       chrome.tabs.executeScript null,
@@ -19,7 +19,8 @@ executeEmojidex = ->
           tab_url = '#{currentTabUrl}',
           autoReplace = #{options['auto-replace']},
           setAutocomplete = #{options['set-autocomplete']},
-          autoUpdate = #{options['auto-update']};
+          autoUpdate = #{options['auto-update']},
+          embedPaletteButton = #{options['embed-palettebutton']};
         "
       chrome.tabs.executeScript null,
         file: "js/content.js"
@@ -49,9 +50,5 @@ chrome.tabs.onActivated.addListener (activeInfo) ->
 # use popup window
 
 chrome.browserAction.onClicked.addListener (tab) ->
-  ls = $.localStorage
-  option = ls.get 'embed-palettebutton'
-  chrome.tabs.executeScript null,
-    code: "var embedPaletteButton = #{option};"
   chrome.tabs.executeScript null,
     file: "js/on_click.js"
