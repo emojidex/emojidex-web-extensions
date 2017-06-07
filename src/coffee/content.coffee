@@ -18,16 +18,15 @@ $(document).ready ->
       $(reload).replaceWith new_img
 
   if setAutocomplete
-    if tab_url.match /twitter.com/
-      elm_autocomplete.emojidexAutocomplete
-        insertImg: false
-    else
-      elm_autocomplete.emojidexAutocomplete()
+    if $('.emojidex-crx-autocomplete').length is 0
+      elm_autocomplete.addClass('emojidex-crx-autocomplete')
+      if tab_url.match /twitter.com/
+        elm_autocomplete.emojidexAutocomplete
+          insertImg: false
+      else
+        elm_autocomplete.emojidexAutocomplete()
 
   if embedPaletteButton
-    elements = $('input[type=text], textarea').toArray()
-    if $('#emojidex-emoji-palette').length is 0 && elements.length > 0
-      $(elements.pop()).emojidexPalette
-        onComplete: (e) =>
-          for element, index in elements
-            $(element).emojidexPalette()
+    if $('.emojidex-crx-palette').length is 0
+      $('input[type=text], textarea').addClass('emojidex-crx-palette')
+      $('input[type=text], textarea').emojidexPalette()
