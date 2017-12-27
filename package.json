@@ -2,8 +2,15 @@
   "name": "emojidex-chrome_extension",
   "version": "0.3.4",
   "description": "emojidex for chrome extension",
+  "license": {
+    "description": "Licensed under the emojidex Open License",
+    "type": "emojiOL",
+    "url": "https://www.emojidex.com/emojidex/emojidex_open_license",
+    "copyright": "Copyright 2013 the emojidex project / K.K. GenSouSha"
+  },
   "devDependencies": {
-    "emojidex": ">=0.16.2",
+    "bower": "^1.8.2",
+    "emojidex": ">=0.15.2",
     "grunt": "~1.0.1",
     "grunt-cli": "~1.2.0",
     "grunt-contrib-coffee": "~1.0.0",
@@ -13,15 +20,12 @@
     "grunt-cson": "^0.17.0",
     "grunt-slim": "^0.1.0"
   },
-  "scripts": {
-    "test": "grunt travis --verbose"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Genshin/emojidex-chrome_extension.git"
+    "url": "git@github.com:emojidex/emojidex-chrome_extension.git"
   },
-  "author": "Genshin",
+  "author": "emojidex",
   "bugs": {
-    "url": "https://github.com/Genshin/emojidex-chrome_extension/issues"
+    "url": "https://github.com/emojidex/emojidex-chrome_extension"
   }
 }

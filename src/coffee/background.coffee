@@ -1,27 +1,15 @@
 newTabId = undefined
 currentTabUrl = undefined
 regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/
+ls = $.localStorage
 
 executeEmojidex = ->
-  # console.log currentTabUrl
   if not currentTabUrl.match(regexpIgnoreUrl)
-    ls = $.localStorage
-    options = ls.get ['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton']
-
     chrome.tabs.query {active: true, highlighted: true}, ->
       chrome.tabs.executeScript null,
         file: "js/lib/jquery.min.js"
       chrome.tabs.executeScript null,
-        # file: "js/lib/emojidex.js"
         file: "js/lib/emojidex.min.js"
-      chrome.tabs.executeScript null,
-        code: "var
-          tab_url = '#{currentTabUrl}',
-          autoReplace = #{options['auto-replace']},
-          setAutocomplete = #{options['set-autocomplete']},
-          autoUpdate = #{options['auto-update']},
-          embedPaletteButton = #{options['embed-palettebutton']};
-        "
       chrome.tabs.executeScript null,
         file: "js/content.js"
 
@@ -30,24 +18,44 @@ setCurrntTabInfo = (callback) ->
     active: true
     currentWindow: true
     (tab_array) ->
-      # console.log newTabId
       if newTabId is tab_array[0].id
         currentTabUrl = tab_array[0].url
         callback()
 
+# runtime callbacks --------
+chrome.runtime.onConnect.addListener (port) ->
+  port.onMessage.addListener (message) ->
+    switch message.method
+      when 'getOptions'
+        defaultOptions =
+          currentTabUrl: currentTabUrl
+          autoReplace: true
+          setAutocomplete: true
+          autoUpdate: false
+          embedPaletteButton: true
+
+        savedOptions = ls.get ['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton']
+        options =
+          currentTabUrl: currentTabUrl
+          autoReplace: savedOptions['auto-replace']
+          setAutocomplete: savedOptions['set-autocomplete']
+          autoUpdate: savedOptions['auto-update']
+          embedPaletteButton: savedOptions['embed-palettebutton']
+
+        if options.autoReplace == null
+          port.postMessage defaultOptions
+        else
+          port.postMessage options
+
+# browser event's callbacks --------
 chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) ->
   if changeInfo.status == 'complete'
     newTabId = tab.id
     setCurrntTabInfo executeEmojidex
 
 chrome.tabs.onActivated.addListener (activeInfo) ->
-  # console.log "activeInfo -----"
-  # console.dir activeInfo
-
   newTabId = activeInfo.tabId
   setCurrntTabInfo executeEmojidex
-
-# use popup window
 
 chrome.browserAction.onClicked.addListener (tab) ->
   chrome.tabs.executeScript null,

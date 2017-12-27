@@ -1,5 +1,5 @@
 (function() {
-  var currentTabUrl, executeEmojidex, newTabId, regexpIgnoreUrl, setCurrntTabInfo;
+  var currentTabUrl, executeEmojidex, ls, newTabId, regexpIgnoreUrl, setCurrntTabInfo;
 
   newTabId = void 0;
 
@@ -7,11 +7,10 @@
 
   regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/;
 
+  ls = $.localStorage;
+
   executeEmojidex = function() {
-    var ls, options;
     if (!currentTabUrl.match(regexpIgnoreUrl)) {
-      ls = $.localStorage;
-      options = ls.get(['auto-replace', 'set-autocomplete', 'auto-update']);
       return chrome.tabs.query({
         active: true,
         highlighted: true
@@ -21,9 +20,6 @@
         });
         chrome.tabs.executeScript(null, {
           file: "js/lib/emojidex.min.js"
-        });
-        chrome.tabs.executeScript(null, {
-          code: "var tab_url = '" + currentTabUrl + "', autoReplace = " + options['auto-replace'] + ", setAutocomplete = " + options['set-autocomplete'] + ", autoUpdate = " + options['auto-update'] + ";"
         });
         return chrome.tabs.executeScript(null, {
           file: "js/content.js"
@@ -43,6 +39,33 @@
       }
     });
   };
+
+  chrome.runtime.onConnect.addListener(function(port) {
+    return port.onMessage.addListener(function(message) {
+      var defaultOptions, options, savedOptions;
+      switch (message.method) {
+        case 'getOptions':
+          defaultOptions = {
+            currentTabUrl: currentTabUrl,
+            autoReplace: true,
+            setAutocomplete: true,
+            autoUpdate: false
+          };
+          savedOptions = ls.get(['auto-replace', 'set-autocomplete', 'auto-update']);
+          options = {
+            currentTabUrl: currentTabUrl,
+            autoReplace: savedOptions['auto-replace'],
+            setAutocomplete: savedOptions['set-autocomplete'],
+            autoUpdate: savedOptions['auto-update']
+          };
+          if (options.autoReplace === null) {
+            return port.postMessage(defaultOptions);
+          } else {
+            return port.postMessage(options);
+          }
+      }
+    });
+  });
 
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     if (changeInfo.status === 'complete') {
