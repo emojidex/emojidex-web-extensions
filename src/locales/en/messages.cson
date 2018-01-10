@@ -22,3 +22,8 @@ options_set_autocomplete_header:
   message: 'Settings for autocomplete'
 options_set_autocomplete:
   message: 'Enable emoji autocomplete in text boxes.'
+
+options_embed_palettebutton_header:
+  message: 'Settings for emojidex palette'
+options_embed_palettebutton:
+  message: 'Embed button to display emojidex palette in all input/textarea.'

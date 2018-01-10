@@ -30,3 +30,8 @@ optionsPort.onMessage.addListener (options) ->
           insertImg: false
       else
         elm_autocomplete.emojidexAutocomplete()
+
+    if options.embedPaletteButton
+      if $('.emojidex-crx-palette').length is 0
+        $('input[type=text], textarea').addClass('emojidex-crx-palette')
+        $('input[type=text], textarea').emojidexPalette()

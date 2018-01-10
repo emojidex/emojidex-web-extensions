@@ -10,6 +10,7 @@ $(document).ready ->
     'auto-replace'
     'auto-update'
     'set-autocomplete'
+    'embed-palettebutton'
   ]
 
   $('#optiom-auto-replace').find('h4').append gm 'options_auto_replace_header'
@@ -28,6 +29,12 @@ $(document).ready ->
     "<div class='checkbox'><label><input id='#{option_names[2]}' type='checkbox'>#{gm 'options_set_autocomplete'}</label></div>"
   ]
   $('#option-set-autocomplete').find('form').append set_autocomplete_forms
+
+  $('#option-embed-palettebutton').find('h4').append gm 'options_embed_palettebutton_header'
+  embed_palettebutton_forms = [
+    "<div class='checkbox'><label><input id='#{option_names[3]}' type='checkbox'>#{gm 'options_embed_palettebutton'}</label></div>"
+  ]
+  $('#option-embed-palettebutton').find('form').append embed_palettebutton_forms
 
   ls = $.localStorage
   if ls.isSet option_names
@@ -53,6 +60,6 @@ $(document).ready ->
       ls.set 'auto-update', false
     return
 
-  $('#auto-update, #set-autocomplete').click (e)->
+  $('#auto-update, #set-autocomplete, #embed-palettebutton').click (e)->
     ls.set e.currentTarget.id, e.currentTarget.checked
     return

@@ -32,13 +32,15 @@ chrome.runtime.onConnect.addListener (port) ->
           autoReplace: true
           setAutocomplete: true
           autoUpdate: false
+          embedPaletteButton: true
 
-        savedOptions = ls.get ['auto-replace', 'set-autocomplete', 'auto-update']
+        savedOptions = ls.get ['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton']
         options =
           currentTabUrl: currentTabUrl
           autoReplace: savedOptions['auto-replace']
           setAutocomplete: savedOptions['set-autocomplete']
           autoUpdate: savedOptions['auto-update']
+          embedPaletteButton: savedOptions['embed-palettebutton']
 
         if options.autoReplace == null
           port.postMessage defaultOptions

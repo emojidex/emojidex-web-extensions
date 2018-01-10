@@ -34,11 +34,17 @@
       }
       if (options.setAutocomplete) {
         if (options.currentTabUrl.match(/twitter.com/)) {
-          return elm_autocomplete.emojidexAutocomplete({
+          elm_autocomplete.emojidexAutocomplete({
             insertImg: false
           });
         } else {
-          return elm_autocomplete.emojidexAutocomplete();
+          elm_autocomplete.emojidexAutocomplete();
+        }
+      }
+      if (options.embedPaletteButton) {
+        if ($('.emojidex-crx-palette').length === 0) {
+          $('input[type=text], textarea').addClass('emojidex-crx-palette');
+          return $('input[type=text], textarea').emojidexPalette();
         }
       }
     });

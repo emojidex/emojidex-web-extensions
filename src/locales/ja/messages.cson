@@ -22,3 +22,8 @@ options_set_autocomplete_header:
   message: '絵文字のフォームに関する設定'
 options_set_autocomplete:
   message: 'フォームにemojidexのオートコンプリートを設定する。'
+
+options_embed_palettebutton_header:
+  message: '絵文字パレットに関する設定'
+options_embed_palettebutton:
+  message: '全てのinput/textareaに絵文字パレット表示ボタンを埋め込む。'
