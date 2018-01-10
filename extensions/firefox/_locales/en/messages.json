@@ -1,0 +1,38 @@
+{
+  "name": {
+    "message": "emojidex"
+  },
+  "description": {
+    "message": "Enable emojidex emoji on every page!"
+  },
+  "options_nav_licensing_info": {
+    "message": "Licensing info"
+  },
+  "options_licensing_description": {
+    "message": "emojidex is licensed under the <a href=\"https://www.emojidex.com/emojidex/emojidex_open_license\">emojidex Open License</a> under the <a href=\"https://www.emojidex.com/emojidex/emojidex_general_license_terms_and_conditions\">terms of the emojidex General License</a>. For licenses or sub-licenses on emojidex emoji assets please refer to the <a href=\"https://www.emojidex.com/emojidex/emojidex_emoji_license\">emojidex™ emoji license</a> information."
+  },
+  "options_header": {
+    "message": "Settings"
+  },
+  "options_auto_replace_header": {
+    "message": "Settings for convert"
+  },
+  "options_auto_replace": {
+    "message": "Automatically convert emoji codes to emoji."
+  },
+  "options_auto_update": {
+    "message": "Automatically convert emoji codes to emoji when an element is added to the page."
+  },
+  "options_set_autocomplete_header": {
+    "message": "Settings for autocomplete"
+  },
+  "options_set_autocomplete": {
+    "message": "Enable emoji autocomplete in text boxes."
+  },
+  "options_embed_palettebutton_header": {
+    "message": "Settings for emojidex palette"
+  },
+  "options_embed_palettebutton": {
+    "message": "Embed button to display emojidex palette in all input/textarea."
+  }
+}
