@@ -49,14 +49,16 @@
             currentTabUrl: currentTabUrl,
             autoReplace: true,
             setAutocomplete: true,
-            autoUpdate: false
+            autoUpdate: false,
+            embedPaletteButton: true
           };
-          savedOptions = ls.get(['auto-replace', 'set-autocomplete', 'auto-update']);
+          savedOptions = ls.get(['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton']);
           options = {
             currentTabUrl: currentTabUrl,
             autoReplace: savedOptions['auto-replace'],
             setAutocomplete: savedOptions['set-autocomplete'],
-            autoUpdate: savedOptions['auto-update']
+            autoUpdate: savedOptions['auto-update'],
+            embedPaletteButton: savedOptions['embed-palettebutton']
           };
           if (options.autoReplace === null) {
             return port.postMessage(defaultOptions);
