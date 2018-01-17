@@ -61,6 +61,12 @@ config =
         }
         {
           expand: true
+          cwd: 'node_modules/emojidex/dist/resources'
+          src: 'bootstrap.min.js'
+          dest: "#{chrome_extension_path}/js/lib"
+        }
+        {
+          expand: true
           cwd: 'node_modules/emojidex/dist/css'
           src: '**/*'
           dest: "#{chrome_extension_path}/css/lib"
