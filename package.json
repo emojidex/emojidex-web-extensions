@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "bower": "^1.8.2",
-    "emojidex": ">=0.15.2",
+    "emojidex": "emojidex/emojidex-web#fix_alert",
     "grunt": "~1.0.1",
     "grunt-cli": "~1.2.0",
     "grunt-contrib-coffee": "~1.0.0",
