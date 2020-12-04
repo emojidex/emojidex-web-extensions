@@ -1,23 +1,16 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "info@emojidex.com"
-    }
-  },
   "manifest_version": 2,
   "default_locale": "en",
   "name": "__MSG_name__",
   "description": "__MSG_description__",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "homepage_url": "https://www.emojidex.com",
   "icons": {
     "32": "img/icons/icon32.png",
     "64": "img/icons/icon64.png",
     "128": "img/icons/icon128.png"
   },
-  "options_ui": {
-    "page": "html/options.html"
-  },
+  "options_page": "html/options.html",
   "permissions": [
     "tabs",
     "http://*/*",
@@ -50,5 +43,6 @@
     "img/*.gif",
     "js/lib/*.map",
     "css/lib/emojidex.min.css"
-  ]
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

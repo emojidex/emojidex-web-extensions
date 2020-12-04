@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    link(href="../css/lib/document.min.css" rel="stylesheet")
+    link(href="../css/lib/emojidex.min.css" rel="stylesheet")
+    script(src="../js/lib/jquery.min.js")
+    script(src="../js/lib/bootstrap.min.js")
+    script(src="../js/lib/jquery.storageapi.min.js")
+    script(src="../js/options.js")
+  body
+    .container
+      nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+        .container
+          .navbar-header
+            a(href="#")
+              img(src="../img/logo.png")
+            button.navbar-toggle.collapsed(data-target="#navbar-top" data-toggle="collapse" type="button")
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #navbar-top.collapse.navbar-collapse
+            a#licensing_info-btn.btn.btn-primary.navbar-btn.pull-right(data-toggle="modal" href="#modal-licensing_info") Licensing Info
+      #modal-licensing_info.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(data-dismiss="modal") &times;
+              h4#licensing_info-title.modal-title Licensing Info
+            .modal-body
+              p#licensing-description
+
+      .row
+        .col-md-12#header
+
+      .row#optiom-auto-replace
+        .col-md-12
+          h4
+          form
+
+      .row#option-set-autocomplete
+        .col-md-12
+          h4
+          form
+
+      .row#option-embed-palettebutton
+        .col-md-12
+          h4
+          form

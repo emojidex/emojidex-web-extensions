@@ -9,6 +9,11 @@
     "copyright": "Copyright 2013 the emojidex project / K.K. GenSouSha"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1",
+    "babel-loader": "^8.2.2",
     "bower": "^1.8.2",
     "emojidex": "emojidex/emojidex-web#fix_alert",
     "grunt": "~1.0.1",
@@ -18,7 +23,13 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "~1.0.0",
     "grunt-cson": "^0.17.0",
-    "grunt-slim": "^0.1.0"
+    "grunt-slim": "^0.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "pug": "^3.0.0",
+    "pug-loader": "^2.4.0",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-extension-reloader": "^1.1.4"
   },
   "repository": {
     "type": "git",
@@ -27,5 +38,9 @@
   "author": "emojidex",
   "bugs": {
     "url": "https://github.com/emojidex/emojidex-chrome_extension"
+  },
+  "scripts": {
+    "build": "grunt cson; grunt copy; webpack --mode production",
+    "dev": "grunt cson; grunt copy; webpack --mode development -w"
   }
 }

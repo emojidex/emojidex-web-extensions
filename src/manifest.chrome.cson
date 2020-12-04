@@ -44,3 +44,5 @@ web_accessible_resources: [
   'js/lib/*.map'
   'css/lib/emojidex.min.css'
 ]
+
+content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'"
