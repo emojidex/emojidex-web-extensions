@@ -1,36 +1,30 @@
-var optionsPort
-console.log(333)
-optionsPort = chrome.runtime.connect()
-
+const optionsPort = chrome.runtime.connect()
 optionsPort.postMessage({
   method: 'getOptions'
 })
-
-optionsPort.onMessage.addListener(function(options) {
-  return $(document).ready(function() {
-    var elm_autocomplete, elm_replace, excuteReplaeWithFlag, i, len, loaded_emoji, new_img, reload
-    excuteReplaeWithFlag = function() {
-      var replace_options
+optionsPort.onMessage.addListener((options) => {
+  return $(() => {
+    const excuteReplaeWithFlag = () => {
       if (options.autoReplace) {
-        replace_options = {
+        let replace_options = {
           autoUpdate: options.autoUpdate
         }
         return elm_replace.emojidexReplace(replace_options)
       }
     }
-    elm_replace = $("body")
-    elm_autocomplete = $("[contentEditable=true], textarea")
+
+    const elm_replace = $("body")
     if (elm_replace.find('.emojidex-emoji').length === 0) {
       excuteReplaeWithFlag()
     } else {
-      loaded_emoji = elm_replace.find('.emojidex-emoji')
-      for (i = 0, len = loaded_emoji.length; i < len; i++) {
-        reload = loaded_emoji[i]
-        new_img = "<img class='" + reload.className + "' src='" + reload.src + "' title='" + reload.title + "' ></img>"
-        $(reload).replaceWith(new_img)
+      const loaded_emoji = elm_replace.find('.emojidex-emoji')
+      for (let i = 0; i < loaded_emoji.length; i++) {
+        $(loaded_emoji[i]).replaceWith(`<img class='${loaded_emoji[i].className}' src='${loaded_emoji[i].src}' title='${loaded_emoji[i].title}'></img>`)
       }
       excuteReplaeWithFlag()
     }
+
+    const elm_autocomplete = $("[contentEditable=true], textarea")
     if (options.setAutocomplete) {
       if (options.currentTabUrl.match(/twitter.com/)) {
         elm_autocomplete.emojidexAutocomplete({
@@ -40,6 +34,7 @@ optionsPort.onMessage.addListener(function(options) {
         elm_autocomplete.emojidexAutocomplete()
       }
     }
+
     if (options.embedPaletteButton) {
       if ($('.emojidex-crx-palette').length === 0) {
         $('input[type=text], textarea').addClass('emojidex-crx-palette')

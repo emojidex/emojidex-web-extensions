@@ -14,16 +14,6 @@ config =
         ext: '.html'
       ]
 
-  coffee:
-    crx:
-      files:[
-        expand: true
-        cwd: 'src/coffee'
-        src: ['**/*.coffee']
-        dest: "#{chrome_extension_path}/js/"
-        ext: '.js'
-      ]
-
   cson:
     manifest_chrome:
       expand: true
@@ -51,7 +41,7 @@ config =
       ext: '.json'
 
   copy:
-    lib:
+    libs:
       files: [
         {
           expand: true
@@ -61,15 +51,15 @@ config =
         }
         {
           expand: true
-          cwd: 'node_modules/emojidex/dist/resources'
-          src: 'bootstrap.min.js'
-          dest: "#{chrome_extension_path}/js/lib"
-        }
-        {
-          expand: true
           cwd: 'node_modules/emojidex/dist/css'
           src: '**/*'
           dest: "#{chrome_extension_path}/css/lib"
+        }
+        {
+          expand: true
+          cwd: 'node_modules/bootstrap-sass/assets/javascripts'
+          src: 'bootstrap.min.js'
+          dest: "#{chrome_extension_path}/js/lib"
         }
         {
           expand: true
@@ -91,15 +81,6 @@ config =
           cwd: 'src/img'
           src: '**/*'
           dest: "#{chrome_extension_path}/img"
-        }
-      ]
-    css:
-      files: [
-        {
-          expand: true
-          cwd: 'src/css'
-          src: '**/*'
-          dest: "#{chrome_extension_path}/css"
         }
       ]
     fonts:
@@ -135,9 +116,6 @@ config =
     slim:
       files: 'src/slim/**/*'
       tasks: ['slim', 'copy:firefox']
-    coffee:
-      files: 'src/coffee/**/*'
-      tasks: ['copy', 'coffee', 'copy:firefox']
 
   connect:
     test_page:
@@ -148,7 +126,6 @@ config =
 module.exports = (grunt) ->
   grunt.initConfig config
 
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-connect'
@@ -157,4 +134,4 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'firefox', ['copy:firefox', 'cson:manifest_firefox']
   grunt.registerTask 'dev', ['connect', 'watch']
-  grunt.registerTask 'default', ['cson', 'copy', 'slim', 'coffee', 'firefox']
+  grunt.registerTask 'default', ['cson', 'copy', 'slim', 'firefox']

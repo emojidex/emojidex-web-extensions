@@ -1,19 +1,15 @@
-var currentTabUrl, executeEmojidex, ls, newTabId, regexpIgnoreUrl, setCurrntTabInfo
 
-newTabId = void 0
+let newTabId = undefined
+let currentTabUrl = undefined
+const regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/
+const ls = $.localStorage
 
-currentTabUrl = void 0
-
-regexpIgnoreUrl = /chrome:|chrome-extension:|file:|view-source:/
-
-ls = $.localStorage
-
-executeEmojidex = function() {
+const executeEmojidex = () => {
   if (!currentTabUrl.match(regexpIgnoreUrl)) {
     return chrome.tabs.query({
       active: true,
       highlighted: true
-    }, function() {
+    }, () => {
       chrome.tabs.executeScript(null, {
         file: "js/lib/jquery.min.js"
       })
@@ -27,11 +23,11 @@ executeEmojidex = function() {
   }
 }
 
-setCurrntTabInfo = function(callback) {
+const setCurrntTabInfo = (callback) => {
   return chrome.tabs.query({
     active: true,
     currentWindow: true
-  }, function(tab_array) {
+  }, (tab_array) => {
     if (newTabId === tab_array[0].id) {
       currentTabUrl = tab_array[0].url
       return callback()
@@ -39,26 +35,27 @@ setCurrntTabInfo = function(callback) {
   })
 }
 
-chrome.runtime.onConnect.addListener(function(port) {
-  return port.onMessage.addListener(function(message) {
-    var defaultOptions, options, savedOptions
+chrome.runtime.onConnect.addListener((port) => {
+  return port.onMessage.addListener((message) => {
     switch (message.method) {
       case 'getOptions':
-        defaultOptions = {
+        const defaultOptions = {
           currentTabUrl: currentTabUrl,
           autoReplace: true,
           setAutocomplete: true,
           autoUpdate: false,
           embedPaletteButton: true
         }
-        savedOptions = ls.get(['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton'])
-        options = {
+
+        const savedOptions = ls.get(['auto-replace', 'set-autocomplete', 'auto-update', 'embed-palettebutton'])
+        const options = {
           currentTabUrl: currentTabUrl,
           autoReplace: savedOptions['auto-replace'],
           setAutocomplete: savedOptions['set-autocomplete'],
           autoUpdate: savedOptions['auto-update'],
           embedPaletteButton: savedOptions['embed-palettebutton']
         }
+
         if (options.autoReplace === null) {
           return port.postMessage(defaultOptions)
         } else {
@@ -68,19 +65,19 @@ chrome.runtime.onConnect.addListener(function(port) {
   })
 })
 
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete') {
     newTabId = tab.id
     return setCurrntTabInfo(executeEmojidex)
   }
 })
 
-chrome.tabs.onActivated.addListener(function(activeInfo) {
+chrome.tabs.onActivated.addListener((activeInfo) => {
   newTabId = activeInfo.tabId
   return setCurrntTabInfo(executeEmojidex)
 })
 
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.browserAction.onClicked.addListener((tab) => {
   return chrome.tabs.executeScript(null, {
     file: "js/on_click.js"
   })
