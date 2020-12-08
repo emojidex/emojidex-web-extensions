@@ -28,11 +28,12 @@ background:
   ]
 
 content_scripts: [
-    matches: ['http://*/*', 'https://*/*']
-    run_at: 'document_end'
-    css: [
-      'css/lib/emojidex.min.css'
-    ]
+  matches: ['http://*/*', 'https://*/*']
+  run_at: 'document_end'
+  css: [
+    'css/lib/emojidex.min.css',
+    # 'css/test.css',
+  ]
 ]
 
 browser_action:

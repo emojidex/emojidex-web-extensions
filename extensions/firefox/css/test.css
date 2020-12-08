@@ -1,0 +1,10 @@
+img.emojidex-emoji {
+  display: inline-block !important;
+  position: relative;
+  vertical-align: text-bottom;
+  width: 1.1em;
+  height: 1.1em;
+  /* top: -0.1em; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
